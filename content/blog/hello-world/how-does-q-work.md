@@ -1,14 +1,14 @@
 ---
-title: How does Q work
+title: How Does Q work
 date: "2024-08-01T09:00:00.000Z"
 description: "Curious about how Q, Qatium's AI assistant, operates under the hood? Dive into the technical details of this tool that leverages OpenAI's generative AI to handle user queries, troubleshoot issues, and manage network operations. Learn how the Retrieval-Augmented Generation (RAG) is used to combine instructions, help center data, and user context for precise responses. Discover how Q integrates predefined commands to execute network tasks, and explore the challenges faced, such as AI response variability, token costs, and handling large network data. This article offers a deep dive into the implementation and the technical decisions."
 ---
 
-Q is the AI assistant in Qatium. They can answer user questions in natural language, help us figure out any issues and even operate the network.
+Q is the AI assistant in Qatium. They can answer user questions in natural language, help resolve issues, and even operate the network.
 
 Q uses conversational generative AI from OpenAI to produce the text.
 
-In order to keep the AI personality consistent and to focus the usage to Qatium we created an assistant. This is basically a set of instructions that are appended to the user questions before sending them to the LLM.
+To maintain a consistent AI personality and focus usage on Qatium, we created an assistant. This involves appending a set of instructions to user questions before they are sent to the LLM.
 
 ```
 USER QUESTION
@@ -26,7 +26,7 @@ Instructions include things like:
 - Reject any requests that are not about Qatium
 - ...
 
-## How do Q know that much about Qatium?
+## How does Q know so much about Qatium?
 
 Q knows the Qatium information they need to answer the user questions because we inject it in the prompt in a similar way we injected the instructions.
 
@@ -46,11 +46,11 @@ USER QUESTION
    LLM
 ```
 
-To be able to find the parts of the help center that are useful to respond to the user question we can't do a keyword search because it would fail in a lot of cases.
+To identify helpful parts of the help center for user questions, we cannot rely on keyword searches as they often fail.
 
 Instead of this, we process all the help center information, generate embeddings that are vector representations of the information and store them in a vector database.
 
-We also generate the embeddings for the user question and use them to search the vector database.
+We generate embeddings for user questions as well, using these to search the vector database.
 
 Retrieval is a service provided by OpenAI too so we only need to periodically extract all the documents from the help center, convert them to markdown and upload them.
 
@@ -73,7 +73,7 @@ USER QUESTION
 
 ## How can Q operate the network?
 
-With all that info Q is able to answer to a whole lot of questions and help you in your Qatium needs. But what is even better than having smart help? Obviously asking "someone" else to do the work.
+Armed with this information, Q can answer a wide range of questions and assist with your Qatium needs. But what's better than smart assistance? Clearly, having someone else do the work.
 
 OpenAI chatGPT is trained to be able to use function calling. You can add a list of commands (tools) that are available to the AI and Q will use them when they see the need.
 
@@ -128,7 +128,7 @@ The AI will run again, the response can be a textual answer for the user or coul
 
 ### Indeterminism
 
-Generative AI may produce different results every time you call it. Is not possible to ensure the results we provide to the user are always right.
+Generative AI may produce different results each time it is used. It's not possible to guarantee that the results provided to the user are always correct.
 
 We are following a "best effort" approach. We manually test and iterate in our prompts and command descriptions until we see the results are right consistently.
 
@@ -138,13 +138,13 @@ LLMs are evolving fast and every new version improves reliability. My personal b
 
 The final prompt is composed by instructions + documentation retrieval+ Qatium context + commands + user question. This may imply a lot of tokens to be used.
 
-The most expensive part is the documentation retrieval. We saved half the tokens used by changing the maximum number of chunks from 20 to 5 and it didn't have a visible effect in the response quality.
+The costliest aspect is retrieving documentation. We saved half the tokens used by changing the maximum number of chunks from 20 to 5 and it didn't have a visible effect in the response quality.
 
-When a second question is added to a thread, the previous messages count as input tokens too. To prevent an exponential growth of consumption we don't add again the commands and we only add a diff of the Qatium context. Based in some consumption measurements I assume OpenAI don't accumulate the retrieval. So the consumption of the second question in a thread is very similar to the first, not growing exponentially.
+When a second question is added to a thread, the previous messages count as input tokens too. To prevent an exponential growth of consumption we don't add again the commands and we only add a diff of the Qatium context. Based on some consumption measurements, I see that OpenAI does not accumulate retrieval data. So the consumption of the second question in a thread is very similar to the first, not growing exponentially.
 
 ### Model updates
 
-Most of the updates on LLMs are better In every aspect. But not all of them, eg some versions of chatGPT were "lazier" than their previous versions.
+Most of the updates on LLMs are better In every aspect. However, not all updates are improvements; for example, some versions of chatGPT were 'lazier' than their predecessors.
 
 Now there are several initiatives to benchmark and compare LLMs that help predict the overall results. But it's impossible to ensure that changes in behavior of the LLM won't worsen Q results.
 
