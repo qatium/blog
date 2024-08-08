@@ -10,14 +10,7 @@ Q uses conversational generative AI from OpenAI to produce the text.
 
 To maintain a consistent AI personality and focus usage on Qatium, we created an assistant. This involves appending a set of instructions to user questions before they are sent to the LLM.
 
-```
-USER QUESTION
-    ⬇️
-**INSTRUCTIONS**
-USER QUESTION
-    ⬇️
-   LLM
-```
+![Diagram that shows how a block of instructions is appended to the prompt before passing it to the LLM gen](./prompt-1.png)
 
 Instructions include things like:
 
@@ -36,15 +29,8 @@ When the user writes a question we search the Qatium help center for pieces of c
 
 Then we concatenate it to the prompt together with the instructions and the question (augmentation) and then we finally ask the LLM for the answer (generation).
 
-```
-USER QUESTION
-    ⬇️
-INSTRUCTIONS
-**DOCS (RETRIEVAL RESULTS**)
-USER QUESTION
-    ⬇️
-   LLM
-```
+![Diagram that shows how a block of documentation is appended to the prompt after the instructions and before the user question and then passed it to the LLM gen](./prompt-2.png)
+
 
 To identify helpful parts of the help center for user questions, we cannot rely on keyword searches as they often fail.
 
@@ -60,16 +46,7 @@ You probably guessed it right, we also concatenate this information to the promp
 
 We call this part the Qatium context. It includes the user name, the network name, which layers are visible, the selected asset, any asset with warnings...
 
-```
-USER QUESTION
-    ⬇️
-INSTRUCTIONS
-DOCS (RETRIEVAL RESULTS)
-**QATIUM CONTEXT**
-USER QUESTION
-    ⬇️
-   LLM
-```
+![Diagram that shows how a block of qatium context is appended to the prompt after the documentation and before the user question and then passed it to the LLM gen](./prompt-3.png)
 
 ## How can Q operate the network?
 
@@ -92,17 +69,7 @@ params: [{
 
 Of course the commands are also part of the prompt:
 
-```
-USER QUESTION
-    ⬇️
-INSTRUCTIONS
-DOCS (RETRIEVAL RESULTS)
-QATIUM CONTEXT
-COMMANDS
-USER QUESTION
-    ⬇️
-   LLM
-```
+![Diagram that shows how a block of commands is appended to the prompt after the qatium context and before the user question and then passed it to the LLM gen](./prompt-3.png)
 
 Additionally we define the code we need to execute:
 
