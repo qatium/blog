@@ -69,7 +69,7 @@ params: [{
 
 Of course the commands are also part of the prompt:
 
-![Diagram that shows how a block of commands is appended to the prompt after the qatium context and before the user question and then passed it to the LLM gen](./prompt-3.png)
+![Diagram that shows how a block of commands is appended to the prompt after the qatium context and before the user question and then passed it to the LLM gen](./prompt-4.png)
 
 Additionally we define the code we need to execute:
 
@@ -79,9 +79,9 @@ const selectAsset = (params) => sdk.map.selectElement(params.assetId)
 
 We use the OpenAI API like this:
 
-- Create a thread
-- Add messages to the thread with the Qatium context and the user question
-- Execute a run with SSE streaming
+1. Create a thread
+2. Execute a run with SSE streaming
+3. Add messages to the thread with the Qatium context and the user question
 
 At this point the LLM generates the answer token by token. It starts to stream text and we display this text to the user.
 
