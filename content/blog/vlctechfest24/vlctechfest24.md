@@ -10,20 +10,20 @@ Natalie and Miguel Angel talked about an internal initiative in the [VLCtechfest
 
 ## Hiring challenges
 
-Entering the hiring market of software developers roles involves tons of work because the demand is huge. Given this context the candidates have many options and will accept interviews with the most appealing jobs. That is why the effort it takes to attract good profiles is increasing.
+Entering the hiring market of software developer roles involves tons of work because the demand is huge. Given this context, candidates have many options and will accept interviews with the most appealing jobs. That is why the effort it takes to attract good profiles is increasing.
 
-On top of that, the standard route leads to having a uniform team where the team members share the same views and **today's consumers are demanding well rounded products created by a diverse team**
+On top of that, the standard route leads to having a uniform team where the team members share the same views and **today's consumers are demanding well rounded products created by a diverse team**.
 
 
 ## Introducing Qatium's plan
 
-In order to address these challenges the Qatium team created an initiative to hire talented engineers to complement the current team and train them so they can participate fully in the engineering team.  The goal was to introduce not only programming languages but also the team conventions, domain knowledge as well as the team culture.
+In order to address these challenges the Qatium team created an initiative to hire talented engineers to complement the current team and train them so they can participate fully in the engineering team.  The goal was to introduce not only programming languages but also the team conventions, domain knowledge, as well as the team culture.
 
 ## The map meets the terrain
 
 The idea was to incrementally increase technologies used and skills required, while gaining independence and confidence. To achieve this, the new team worked on 3 projects over the course of 5 months: ‘[Fireflows](https://labs.qatium.com/apps/fireflow)’, ‘[Control Logic](https://labs.qatium.com/apps/control-logic)’ and ‘Tank emptying’.
 
-Not only did these projects allow us to understand some **core technologies** that are used in the main web app (such as typescript, docker, mapbox and the hydraulic modeling library EPANET), and **core skills** such as running hydraulic simulations and effective visualization, it also gave us a taste of what life at Qatium was like.
+Not only did these projects allow us (participants of this initiative) to understand some **core technologies** that are used in the main web app (such as typescript, docker, mapbox and the hydraulic modeling library EPANET), and **core skills** such as running hydraulic simulations and effective visualization, it also gave us a taste of what life at Qatium was like.
 
 We learned core practices like test driven development and pair programming, learn to collaborate with other teams, how to effectively communicate project outcomes and importantly, taught us **autonomy and confidence** in our skills.
 
