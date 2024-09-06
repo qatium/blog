@@ -1,5 +1,6 @@
 ---
 title: Cultivating talent and diversity in engineering teams
+author: Natalie Grefenstette and Miguel Angel Fernandez
 date: "2024-08-26T09:00:00.000Z"
 description: "Natalie and Miguel Angel talked about an internal initiative in the VLCtechfest 2024 conference"
 ---

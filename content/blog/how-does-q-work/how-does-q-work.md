@@ -1,5 +1,6 @@
 ---
 title: How Does Q work
+author: Javier Carrasco
 date: "2024-08-01T09:00:00.000Z"
 description: "Curious about how Q, Qatium's AI assistant, operates under the hood? Dive into the technical details of this tool that leverages OpenAI's generative AI to handle user queries, troubleshoot issues, and manage network operations. Learn how Retrieval-Augmented Generation (RAG) is used to combine instructions, help center data, and user context for precise responses. Discover how Q integrates predefined commands to execute network tasks, and explore the challenges faced, such as AI response variability, token costs, and handling large network data. This article offers a deep dive into the implementation and the technical decisions."
 ---

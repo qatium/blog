@@ -14,7 +14,7 @@ module.exports = {
       name: `the Qatium Product team`,
       summary: `You will find interesting posts about the problems and solutions they encounter while striving to solve complex challenges and improve the efficiency of water infrastructures worldwide.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `The Qatium Product team blog`,
     siteUrl: `https://qatium.github.io/blog/`,
     social: {
       twitter: `qatiumhq`,
